@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // 驗證信／重設密碼信的連結若落在首頁，轉送到編輯器 /app 並保留登入資訊
+      (function () {
+        var h = location.hash || '', q = location.search || '';
+        if (/access_token=|type=recovery|type=signup|error_code=/.test(h) || /[?&]code=/.test(q)) {
+          location.replace('/app' + q + h);
+        }
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q343W1LZVG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q343W1LZVG');
+      // 追蹤 landing page 上通往編輯器的按鈕與 YouTube 互動
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('pricing.html') !== -1) {
+          gtag('event', 'click_pricing', { location: 'landing' });
+        } else if (href.indexOf('utm_campaign=') !== -1) {
+          var m = href.match(/utm_campaign=([^&]+)/);
+          gtag('event', 'click_cta', { location: m ? m[1] : 'landing' });
+        }
+      }, true);
+    </script>
+    <link rel="icon" type="image/webp" href="https://storage.helloreaddy.io/project_files/8c1f11c6-e390-4eae-a43e-ff9964d1e86e/63b16f69-80cd-49ad-94f5-cde4a7b4e1ef_compressed__icon.webp" />
+    <link rel="apple-touch-icon" href="https://storage.helloreaddy.io/project_files/8c1f11c6-e390-4eae-a43e-ff9964d1e86e/63b16f69-80cd-49ad-94f5-cde4a7b4e1ef_compressed__icon.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>萬格AI華語考卷出題神器 - CSL和中文老師的AI出題排版工具</title>
+    <meta name="description" content="萬格 Wango 是專為華語 CSL 與中文老師打造的 AI 考卷編輯器。AI 快速出題，注音、拼音、十字格、田字格自動對齊，選項自動斷行，多音字與同部首分組配對輕鬆排版，完成後線上預覽並一鍵輸出高畫質 PDF。五分鐘做好一張中文考卷，把繁瑣排版留給萬格，把時間還給教學。" />
+    <meta name="keywords" content="華語考卷編輯器,注音拼音排版,CSL 中文教學,田字格考卷,AI 出題工具" />
+    <meta name="author" content="萬格 Wango" />
+    <meta name="theme-color" content="#1d2a52" />
+    <link rel="canonical" href="https://cslexameditor.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="萬格 Wango" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:title" content="萬格AI華語考卷出題神器 - CSL和中文老師的AI出題排版工具" />
+    <meta property="og:description" content="AI 幫你快速出題，注音、拼音、十字格、田字格自動排好，選項自動斷行、分組配對輕鬆排版，完成後直接預覽、輸出高畫質 PDF。專為華語 CSL 與中文老師打造的考卷編輯器。" />
+    <meta property="og:url" content="https://cslexameditor.com/" />
+    <meta property="og:image" content="https://readdy.ai/api/search-image?query=Minimalist%20flat%20illustration%20of%20a%20Chinese%20language%20exam%20worksheet%20with%20neat%20character%20grid%20squares%2C%20soft%20green%20accents%2C%20off-white%20paper%20background%2C%20clean%20lines%2C%20warm%20educational%20aesthetic%2C%20no%20text%2C%20wide%20banner%20composition&width=1200&height=630&seq=wango-og-2026a&orientation=landscape" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="萬格 Wango 華語考卷編輯器：注音、拼音、十字格、田字格自動對齊的中文考卷出題工具" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="萬格AI華語考卷出題神器 - CSL和中文老師的AI出題排版工具" />
+    <meta name="twitter:description" content="AI 幫你快速出題，注音、拼音、十字格、田字格自動排好，選項自動斷行、分組配對輕鬆排版，完成後直接預覽、輸出高畫質 PDF。" />
+    <meta name="twitter:image" content="https://readdy.ai/api/search-image?query=Minimalist%20flat%20illustration%20of%20a%20Chinese%20language%20exam%20worksheet%20with%20neat%20character%20grid%20squares%2C%20soft%20green%20accents%2C%20off-white%20paper%20background%2C%20clean%20lines%2C%20warm%20educational%20aesthetic%2C%20no%20text%2C%20wide%20banner%20composition&width=1200&height=630&seq=wango-og-2026a&orientation=landscape" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://cslexameditor.com/#organization",
+        "name": "萬格 Wango",
+        "alternateName": "Wango 華語考卷編輯器",
+        "url": "https://cslexameditor.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://storage.helloreaddy.io/project_files/8c1f11c6-e390-4eae-a43e-ff9964d1e86e/9dcdc571-7e09-4de4-9eeb-7229e3ef7f38_compressed_logo___.webp"
+        },
+        "description": "萬格 Wango 是專為華語 CSL 老師打造的 AI 考卷編輯器，讓注音、拼音、十字格、田字格自動對齊，並可一鍵輸出 PDF。",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TW"
+        },
+        "knowsAbout": [
+          "華語教學",
+          "CSL 中文教學",
+          "注音排版",
+          "拼音排版",
+          "十字格與田字格考卷",
+          "考卷編輯器",
+          "AI 出題工具"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cslexameditor.com/#website",
+        "url": "https://cslexameditor.com/",
+        "name": "萬格 Wango｜華語考卷編輯器",
+        "inLanguage": "zh-Hant",
+        "publisher": { "@id": "https://cslexameditor.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://cslexameditor.com/#webpage",
+        "url": "https://cslexameditor.com/",
+        "name": "萬格AI華語考卷出題神器 - CSL和中文老師的AI出題排版工具",
+        "description": "萬格 Wango 是專為華語 CSL 與中文老師打造的 AI 考卷編輯器。AI 快速出題，注音、拼音、十字格、田字格自動對齊，完成後線上預覽並一鍵輸出高畫質 PDF。",
+        "isPartOf": { "@id": "https://cslexameditor.com/#website" },
+        "about": { "@id": "https://cslexameditor.com/#software" },
+        "inLanguage": "zh-Hant"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://cslexameditor.com/#software",
+        "name": "萬格 Wango",
+        "alternateName": "Wango 華語考卷編輯器",
+        "applicationCategory": "EducationalApplication",
+        "applicationSubCategory": "考卷編輯器",
+        "operatingSystem": "Web",
+        "inLanguage": "zh-Hant",
+        "isAccessibleForFree": false,
+        "description": "專為華語 CSL 老師打造的 AI 考卷編輯器，AI 快速出題，注音、拼音、十字格、田字格自動對齊，並可一鍵輸出 PDF。",
+        "url": "https://cslexameditor.com/",
+        "featureList": [
+          "AI 快速出題",
+          "注音、拼音雙系統排版",
+          "十字格、田字格自動對齊",
+          "選項自動斷行",
+          "多音字與同部首字分組配對",
+          "直式、橫式與空白練習版",
+          "一鍵輸出高畫質 PDF"
+        ],
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "teacher"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "入門版（月繳）",
+            "price": "199",
+            "priceCurrency": "TWD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cslexameditor.com/#pricing",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "199",
+              "priceCurrency": "TWD",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitCode": "MON"
+              }
+            },
+            "itemOffered": { "@id": "https://cslexameditor.com/#software" }
+          },
+          {
+            "@type": "Offer",
+            "name": "一般版（月繳）",
+            "price": "299",
+            "priceCurrency": "TWD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cslexameditor.com/#pricing",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "299",
+              "priceCurrency": "TWD",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitCode": "MON"
+              }
+            },
+            "itemOffered": { "@id": "https://cslexameditor.com/#software" }
+          },
+          {
+            "@type": "Offer",
+            "name": "豪華版（月繳）",
+            "price": "399",
+            "priceCurrency": "TWD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cslexameditor.com/#pricing",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "399",
+              "priceCurrency": "TWD",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitCode": "MON"
+              }
+            },
+            "itemOffered": { "@id": "https://cslexameditor.com/#software" }
+          }
+        ],
+        "publisher": { "@id": "https://cslexameditor.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://cslexameditor.com/#faq",
+        "isPartOf": { "@id": "https://cslexameditor.com/#webpage" },
+        "mainEntity": [
+          { "@type": "Question", "name": "萬格 Wango 是什麼？", "acceptedAnswer": { "@type": "Answer", "text": "萬格 Wango 是專為華語 CSL 與中文老師打造的 AI 考卷編輯器，能自動排版注音或拼音，並讓十字格、田字格自動對齊，完成後可一鍵輸出高畫質 PDF。" } },
+          { "@type": "Question", "name": "萬格支援哪些題型？", "acceptedAnswer": { "@type": "Answer", "text": "十字格、田字格、改錯字、注音填空、造詞、造句、連連看、閱讀測驗、小作文等華語教學常用題型都有，套用模板、拖曳、打字就能完成。" } },
+          { "@type": "Question", "name": "萬格適合哪些人使用？", "acceptedAnswer": { "@type": "Answer", "text": "以 CSL、國際學校與海外華語老師為主，也很適合補習班與學校的中文老師；家長也能用來列印孩子的練習本。" } },
+          { "@type": "Question", "name": "我電腦不太行，會很難學嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不會。萬格是拖曳、套用、打字就能用的編輯器，不需要學倉頡，也不需要記任何指令。" } },
+          { "@type": "Question", "name": "需要下載或安裝軟體嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不用。萬格是網頁版工具，用瀏覽器打開就能編輯，不需要安裝任何程式，編輯完直接輸出 PDF。" } },
+          { "@type": "Question", "name": "注音和拼音可以同時排嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。注音、拼音雙系統同時支援，注音擺右邊、拼音放底下，跟著國字大小自動對齊。" } },
+          { "@type": "Question", "name": "做好的考卷會不會不見？答案會保留嗎？", "acceptedAnswer": { "@type": "Answer", "text": "你可以儲存不同版本的考卷，答案與編輯內容都會保留，方便之後不同學期重複使用與微調。" } },
+          { "@type": "Question", "name": "可以輸出成 PDF 列印嗎？直式橫式都行嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。編輯完直接預覽，一鍵輸出高畫質 PDF，直式、橫式都支援。" } },
+          { "@type": "Question", "name": "有沒有試用？", "acceptedAnswer": { "@type": "Answer", "text": "有。萬格提供 3 天免費試用，可以先實際操作 AI 出題與注音、拼音、字格自動排版，試用後滿意再選擇方案。" } },
+          { "@type": "Question", "name": "萬格的方案怎麼算？", "acceptedAnswer": { "@type": "Answer", "text": "分成入門版 NT$199／月、一般版 NT$299／月、豪華版 NT$399／月三種，差別在每月 AI 出題次數。年繳更省（最多省 33%），額度用完可隨時加購，訂閱也能隨時取消。" } },
+          { "@type": "Question", "name": "學校要整批採用怎麼買？", "acceptedAnswer": { "@type": "Answer", "text": "我們提供多帳號席次授權與學校專屬報價，請由「機構方案」留下聯絡方式，我們與你討論。" } }
+        ]
+      }
+    ]
+  }
+  </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 品牌：深藍（primary） */
+  --primary-50: 0.975 0.010 265;
+  --primary-100: 0.945 0.024 265;
+  --primary-200: 0.885 0.045 265;
+  --primary-300: 0.780 0.060 265;
+  --primary-400: 0.580 0.072 265;
+  --primary-500: 0.345 0.066 265;
+  --primary-600: 0.305 0.060 265;
+  --primary-700: 0.262 0.055 265;
+  --primary-800: 0.222 0.050 265;
+  --primary-900: 0.190 0.045 265;
+  --primary-950: 0.150 0.040 265;
+
+  /* 品牌：金（accent，CTA / AI 重點） */
+  --accent-50: 0.982 0.020 88;
+  --accent-100: 0.955 0.052 86;
+  --accent-200: 0.915 0.090 85;
+  --accent-300: 0.868 0.120 83;
+  --accent-400: 0.822 0.140 82;
+  --accent-500: 0.780 0.142 80;
+  --accent-600: 0.700 0.130 78;
+  --accent-700: 0.580 0.110 76;
+  --accent-800: 0.470 0.090 74;
+  --accent-900: 0.380 0.070 72;
+  --accent-950: 0.280 0.050 70;
+
+  /* 田字格：綠（secondary） */
+  --secondary-50: 0.972 0.020 155;
+  --secondary-100: 0.940 0.042 155;
+  --secondary-200: 0.888 0.068 155;
+  --secondary-300: 0.820 0.092 155;
+  --secondary-400: 0.720 0.120 155;
+  --secondary-500: 0.620 0.130 155;
+  --secondary-600: 0.540 0.118 155;
+  --secondary-700: 0.450 0.098 155;
+  --secondary-800: 0.370 0.078 155;
+  --secondary-900: 0.300 0.060 155;
+  --secondary-950: 0.220 0.048 155;
+
+  /* 紙感（background） */
+  --background-50: 0.992 0.004 95;
+  --background-100: 0.975 0.008 95;
+  --background-200: 0.950 0.012 94;
+  --background-300: 0.910 0.016 92;
+  --background-400: 0.850 0.020 90;
+  --background-500: 0.780 0.022 88;
+  --background-600: 0.680 0.022 86;
+  --background-700: 0.550 0.020 84;
+  --background-800: 0.430 0.018 82;
+  --background-900: 0.320 0.015 80;
+  --background-950: 0.240 0.012 78;
+
+  /* 墨色（foreground） */
+  --foreground-50: 0.980 0.006 265;
+  --foreground-100: 0.950 0.012 265;
+  --foreground-200: 0.900 0.020 265;
+  --foreground-300: 0.820 0.028 265;
+  --foreground-400: 0.660 0.032 265;
+  --foreground-500: 0.520 0.036 265;
+  --foreground-600: 0.450 0.036 265;
+  --foreground-700: 0.400 0.036 265;
+  --foreground-800: 0.330 0.034 265;
+  --foreground-900: 0.280 0.032 265;
+  --foreground-950: 0.215 0.030 265;
+
+  --font-heading: "Noto Serif TC", "Songti TC", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-label: "Noto Sans TC", "PingFang TC", sans-serif;
+  /* 楷體：手寫／印刷考卷感，用於註記、引文、旁註 */
+  --font-hand: "LXGW WenKai TC", "Kaiti TC", "DFKai-SB", "BiauKai", "Songti TC", serif;
+
+  /* 頁首深藍：對齊 logo 品牌深藍 */
+  --brand-navy: #1d2a52;
+}
+
+.dark {
+  --background-50: 0.240 0.012 78;
+  --background-100: 0.290 0.014 80;
+  --background-200: 0.340 0.016 82;
+  --background-300: 0.400 0.018 84;
+  --background-400: 0.480 0.020 86;
+  --background-500: 0.560 0.020 88;
+  --background-600: 0.660 0.022 88;
+  --background-700: 0.760 0.022 90;
+  --background-800: 0.850 0.020 92;
+  --background-900: 0.920 0.014 94;
+  --background-950: 0.975 0.008 95;
+
+  --foreground-50: 0.220 0.030 265;
+  --foreground-100: 0.280 0.032 265;
+  --foreground-200: 0.340 0.034 265;
+  --foreground-300: 0.420 0.036 265;
+  --foreground-400: 0.560 0.036 265;
+  --foreground-500: 0.680 0.034 265;
+  --foreground-600: 0.760 0.030 265;
+  --foreground-700: 0.830 0.024 265;
+  --foreground-800: 0.890 0.018 265;
+  --foreground-900: 0.940 0.012 265;
+  --foreground-950: 0.975 0.008 265;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: oklch(var(--background-50));
+    color: oklch(var(--foreground-900));
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.01em;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: var(--font-label);
+  }
+
+  ::selection {
+    background: oklch(var(--accent-200));
+    color: oklch(var(--primary-900));
+  }
+}
+
+@layer components {
+  /* ---------- 頁首深藍（對齊 logo 品牌深藍） ---------- */
+  .nav-navy {
+    background-color: var(--brand-navy);
+  }
+
+  /* ---------- 容器 ---------- */
+  .wango-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .wango-wrap {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* ---------- 紙感背景：淡淡綠色田字格虛線 ---------- */
+  .grid-paper {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M0 0H64M0 0V64' fill='none' stroke='%2335a86a' stroke-width='1' stroke-dasharray='3 7' opacity='0.9'/%3E%3Cpath d='M32 8V56M8 32H56' fill='none' stroke='%2335a86a' stroke-width='1' stroke-dasharray='3 6' opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 64px 64px;
+  }
+
+  .grid-paper-faint {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 0H80M0 0V80' fill='none' stroke='%23fcfbf7' stroke-width='1' stroke-dasharray='3 8' opacity='0.22'/%3E%3Cpath d='M40 10V70M10 40H70' fill='none' stroke='%23fcfbf7' stroke-width='1' stroke-dasharray='3 7' opacity='0.14'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  /* ---------- 田字格元件 ---------- */
+  .tzg {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: oklch(var(--background-50));
+    border: 1.5px solid oklch(var(--primary-500));
+    flex: none;
+  }
+  .tzg::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 6%;
+    bottom: 6%;
+    border-left: 1.5px dashed oklch(var(--secondary-500));
+    transform: translateX(-50%);
+  }
+  .tzg::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 6%;
+    right: 6%;
+    border-top: 1.5px dashed oklch(var(--secondary-500));
+    transform: translateY(-50%);
+  }
+
+  /* ---------- 按鈕 ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    font-family: var(--font-label);
+    font-weight: 700;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.14s ease, background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+  .btn-gold {
+    background: oklch(var(--accent-500));
+    color: oklch(var(--primary-950));
+  }
+  .btn-gold:hover {
+    background: oklch(var(--accent-400));
+    transform: translateY(-1px);
+  }
+  .btn-navy {
+    background: oklch(var(--primary-500));
+    color: oklch(var(--background-50));
+  }
+  .btn-navy:hover {
+    background: oklch(var(--primary-600));
+    transform: translateY(-1px);
+  }
+  .btn-outline {
+    background: transparent;
+    color: oklch(var(--primary-800));
+    border: 1.5px solid oklch(var(--primary-300));
+  }
+  .btn-outline:hover {
+    border-color: oklch(var(--primary-500));
+    background: oklch(var(--primary-50));
+  }
+  .btn-outline-light {
+    background: transparent;
+    color: oklch(var(--background-50));
+    border: 1.5px solid oklch(var(--background-50) / 0.4);
+  }
+  .btn-outline-light:hover {
+    border-color: oklch(var(--background-50));
+  }
+  .btn-lg {
+    padding: 0.95rem 1.9rem;
+    font-size: 1.04rem;
+    border-radius: 0.65rem;
+  }
+
+  /* ---------- 區塊標題 ---------- */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-label);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: oklch(var(--primary-500));
+  }
+
+  /* ---------- 動畫 ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(13px);
+    transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1), transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* ---------- 表單防機器人欄位（非 inline，低調隱藏） ---------- */
+  .inquiry-alt-field {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
+}

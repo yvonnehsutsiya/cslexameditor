@@ -1,0 +1,26 @@
+【給夥伴：萬格 landing page 檔案說明】
+
+GEO 要改的地方（改這些就好）
+1. index.html（根目錄）：<head> 裡的 title、meta description、og/twitter、
+   <script type="application/ld+json">（Organization、WebSite、SoftwareApplication、FAQPage）
+2. public/llms.txt：給 AI 搜尋引擎看的網站摘要
+3. public/robots.txt、public/sitemap.xml
+4. 頁面文字：src/pages/home/components/*.tsx（FaqSection、HeroSection、PricingSection 等）
+
+已經接好、請不要改壞的地方（會影響註冊與付款）
+- src/pages/home/constants.ts：
+  APP_URL = "/app"（編輯器網址）、planLink()（方案按鈕 → 註冊 → 付款）、CTA_LINKS（帶 utm 的連結）、定價頁 /pricing.html
+- PricingSection.tsx：方案按鈕使用 planLink(tier.id)，tier.id 必須是 starter / standard / premium
+- index.html 內的 Google Analytics（G-Q343W1LZVG）與「把驗證信/重設密碼連結導回 /app」的小段 script
+- InstitutionSection.tsx：機構詢問表單（gtag generate_lead）
+
+注意：這個頁面是 React 做的，index.html 裡只有 <div id="root"></div>，
+文字內容是瀏覽器執行 JS 之後才長出來。很多 AI 爬蟲不會執行 JS，
+所以 GEO 效果最好的做法是：
+(a) 重要文字（產品介紹、功能、價格、FAQ）要放進 index.html 的靜態內容或 JSON-LD；
+(b) 或改用預先轉成靜態 HTML（prerender）的方式輸出。
+
+改完後請把「整包專案」或「新的 index.html + public 資料夾 + 重新 build 的 out」交回，
+我們這邊會檢查 /app 註冊流程沒被影響再上線。
+
+建置方式：npm install → npx vite build（輸出在 out/）
